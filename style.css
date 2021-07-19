@@ -136,8 +136,10 @@ div#site-header {
 }
 div#site-header div.banner-container > a > img {
   aspect-ratio: auto;
+  width: 100%;
+  height: auto;
+  max-width: 603px;
   max-height: 107px;
-  width: auto;
 }
 
 div#site-content {
