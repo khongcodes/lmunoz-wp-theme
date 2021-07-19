@@ -1,0 +1,79 @@
+/* Theme Name: My First Theme
+   Author: Kevin Hong
+   Author URI: https://khongcodes.com
+   Description: Theme custom-made for Lynnette Munoz
+   Version: 1.0.1
+   License: GNU General Public License v2 or later
+   License URI: http://www.gnu.org/licenses/gpl-2.0.html
+   Text Domain: my-first-theme
+   This theme, like WordPress, is licensed under the GPL.
+   Use it to make something cool, have fun, and share what you've learned with others. */
+
+@use "design" as d
+
+// COLORS EXPOSED FOR MODIFICATION BY WORDPRESS ADMIN
+:root
+   --color-background: #FFFFFF
+   --color-background-mobile-nav: #ffe6e6
+   --color-link-primary: #f66
+   --color-link-secondary: #f9b44d
+   --color-text-primary: #922627
+   --padding-site: 80px
+   --padding-site-tablet: 50px
+   --padding-site-mobile: 30px
+   --padding-site-mobile-sm: 20px
+   --font-size-regular: 15px
+   --font-size-nav: 21px
+   --font-weight-nav: 500
+
+html
+   height: 100%
+   background: var(--color-background)
+   font-family: "Helvetica Neue", Arial, sans-serif
+   font-size: var(--font-size-regular)
+   color: var(--color-text-primary)
+   line-height: 1.5em
+
+body
+   @include d.use-square-site-padding-top
+   margin-left: 0
+   margin-right: 0
+
+a
+   text-decoration: none
+   color: var(--color-link-primary)
+   &:active, &:hover
+      text-decoration: underline
+      color: var(--color-link-secondary)
+
+
+div#site-header
+   @include d.use-square-site-padding-top
+   text-align: center
+   div.banner-container 
+      @include d.use-square-site-padding
+      @include d.mobile-media
+         margin-bottom: d.space(1)
+      > a > img
+         aspect-ratio: auto
+         max-height: 107px
+         width: auto
+
+div#site-content
+   @include d.use-square-site-padding
+   margin-top: 0
+   margin-bottom: d.space(2)
+
+div#site-footer-container
+   @include d.use-square-site-padding-bottom
+   color: #fff
+   text-align: center
+   font-size: 12px
+   min-height: d.space(8)
+   padding: d.space(2)
+
+
+@import "contact-form"
+@import "primary-nav-mobile"
+@import "meow-gallery"
+@import "text-page-wrapper"

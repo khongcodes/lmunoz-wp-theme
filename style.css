@@ -1,0 +1,425 @@
+/* Theme Name: My First Theme
+ * Author: Kevin Hong
+ * Author URI: https://khongcodes.com
+ * Description: Theme custom-made for Lynnette Munoz
+ * Version: 1.0.1
+ * License: GNU General Public License v2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: my-first-theme
+ * This theme, like WordPress, is licensed under the GPL.
+ * Use it to make something cool, have fun, and share what you've learned with others. */
+:root {
+  --color-background: #FFFFFF;
+  --color-background-mobile-nav: #ffe6e6;
+  --color-link-primary: #f66;
+  --color-link-secondary: #f9b44d;
+  --color-text-primary: #922627;
+  --padding-site: 80px;
+  --padding-site-tablet: 50px;
+  --padding-site-mobile: 30px;
+  --padding-site-mobile-sm: 20px;
+  --font-size-regular: 15px;
+  --font-size-nav: 21px;
+  --font-weight-nav: 500;
+}
+
+html {
+  height: 100%;
+  background: var(--color-background);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: var(--font-size-regular);
+  color: var(--color-text-primary);
+  line-height: 1.5em;
+}
+
+body {
+  margin-left: 0;
+  margin-right: 0;
+}
+@media screen and (min-width: 960px) {
+  body {
+    margin-top: var(--padding-site);
+  }
+}
+@media screen and (max-width: 960px) {
+  body {
+    margin-top: var(--padding-site-tablet);
+  }
+}
+@media screen and (max-width: 640px) {
+  body {
+    margin-top: var(--padding-site-mobile);
+  }
+}
+@media screen and (max-width: 480px) {
+  body {
+    margin-top: var(--padding-site-mobile-sm) !important;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-link-primary);
+}
+a:active, a:hover {
+  text-decoration: underline;
+  color: var(--color-link-secondary);
+}
+
+div#site-header {
+  text-align: center;
+}
+@media screen and (min-width: 960px) {
+  div#site-header {
+    margin-top: var(--padding-site);
+  }
+}
+@media screen and (max-width: 960px) {
+  div#site-header {
+    margin-top: var(--padding-site-tablet);
+  }
+}
+@media screen and (max-width: 640px) {
+  div#site-header {
+    margin-top: var(--padding-site-mobile);
+  }
+}
+@media screen and (max-width: 480px) {
+  div#site-header {
+    margin-top: var(--padding-site-mobile-sm) !important;
+  }
+}
+@media screen and (min-width: 960px) {
+  div#site-header div.banner-container {
+    margin-left: var(--padding-site);
+  }
+}
+@media screen and (max-width: 960px) {
+  div#site-header div.banner-container {
+    margin-left: var(--padding-site-tablet);
+  }
+}
+@media screen and (max-width: 640px) {
+  div#site-header div.banner-container {
+    margin-left: var(--padding-site-mobile);
+  }
+}
+@media screen and (max-width: 480px) {
+  div#site-header div.banner-container {
+    margin-left: var(--padding-site-mobile-sm) !important;
+  }
+}
+@media screen and (min-width: 960px) {
+  div#site-header div.banner-container {
+    margin-right: var(--padding-site);
+  }
+}
+@media screen and (max-width: 960px) {
+  div#site-header div.banner-container {
+    margin-right: var(--padding-site-tablet);
+  }
+}
+@media screen and (max-width: 640px) {
+  div#site-header div.banner-container {
+    margin-right: var(--padding-site-mobile);
+  }
+}
+@media screen and (max-width: 480px) {
+  div#site-header div.banner-container {
+    margin-right: var(--padding-site-mobile-sm) !important;
+  }
+}
+@media screen and (max-width: 788px) {
+  div#site-header div.banner-container {
+    margin-bottom: 8px;
+  }
+}
+div#site-header div.banner-container > a > img {
+  aspect-ratio: auto;
+  max-height: 107px;
+  width: auto;
+}
+
+div#site-content {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+@media screen and (min-width: 960px) {
+  div#site-content {
+    margin-left: var(--padding-site);
+  }
+}
+@media screen and (max-width: 960px) {
+  div#site-content {
+    margin-left: var(--padding-site-tablet);
+  }
+}
+@media screen and (max-width: 640px) {
+  div#site-content {
+    margin-left: var(--padding-site-mobile);
+  }
+}
+@media screen and (max-width: 480px) {
+  div#site-content {
+    margin-left: var(--padding-site-mobile-sm) !important;
+  }
+}
+@media screen and (min-width: 960px) {
+  div#site-content {
+    margin-right: var(--padding-site);
+  }
+}
+@media screen and (max-width: 960px) {
+  div#site-content {
+    margin-right: var(--padding-site-tablet);
+  }
+}
+@media screen and (max-width: 640px) {
+  div#site-content {
+    margin-right: var(--padding-site-mobile);
+  }
+}
+@media screen and (max-width: 480px) {
+  div#site-content {
+    margin-right: var(--padding-site-mobile-sm) !important;
+  }
+}
+
+div#site-footer-container {
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  min-height: 64px;
+  padding: 16px;
+}
+@media screen and (min-width: 960px) {
+  div#site-footer-container {
+    padding-bottom: var(--padding-site);
+  }
+}
+@media screen and (max-width: 960px) {
+  div#site-footer-container {
+    padding-bottom: var(--padding-site-tablet);
+  }
+}
+@media screen and (max-width: 640px) {
+  div#site-footer-container {
+    padding-bottom: var(--padding-site-mobile);
+  }
+}
+@media screen and (max-width: 480px) {
+  div#site-footer-container {
+    padding-bottom: var(--padding-site-mobile-sm) !important;
+  }
+}
+
+form.wpcf7-form {
+  margin: 40px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 3fr auto;
+  grid-template-areas: "first-name last-name" "email email" "subject subject" "message message" "submit submit";
+  column-gap: 32px;
+}
+form.wpcf7-form input[type=text], form.wpcf7-form input[type=email], form.wpcf7-form textarea {
+  padding: 12px 12px 10px;
+  background-color: #f3f3f3;
+  color: #5d5d5d;
+  border: 0.5px solid #d0d0d0;
+  border-radius: 5px;
+}
+form.wpcf7-form > p {
+  margin-block-end: 8px;
+  margin-block-start: 8px;
+}
+form.wpcf7-form > p > label {
+  display: inline-block;
+  width: 100%;
+  font-size: 13px;
+}
+form.wpcf7-form > p > label > span.wpcf7-form-control-wrap > .wpcf7-form-control {
+  box-sizing: border-box;
+  width: 100%;
+}
+form.wpcf7-form > p:nth-of-type(1) {
+  grid-area: first-name;
+}
+form.wpcf7-form > p:nth-of-type(2) {
+  grid-area: last-name;
+}
+form.wpcf7-form > p:nth-of-type(3) {
+  grid-area: email;
+}
+form.wpcf7-form > p:nth-of-type(4) {
+  grid-area: subject;
+}
+form.wpcf7-form > p:nth-of-type(5) {
+  grid-area: message;
+}
+form.wpcf7-form > p:nth-of-type(5) textarea.wpcf7-form-control {
+  line-height: 120%;
+  font-family: sans-serif;
+}
+form.wpcf7-form > p:nth-of-type(6) {
+  margin-top: 16px;
+  text-align: center;
+  grid-area: submit;
+}
+form.wpcf7-form > p:nth-of-type(6) > span.ajax-loader {
+  display: none;
+}
+
+#primary-nav-container a {
+  text-decoration: none;
+  color: var(--color-link-primary);
+}
+#primary-nav-container a:hover, #primary-nav-container a:active {
+  color: var(--color-link-secondary);
+}
+#primary-nav-container a {
+  font-size: var(--font-size-nav);
+  font-weight: var(--font-weight-nav);
+}
+#primary-nav-container ul {
+  list-style-type: none;
+  padding-inline-start: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+#primary-nav-container li.current-menu-item > a {
+  color: var(--color-link-secondary);
+}
+@media screen and (min-width: 788px) {
+  #primary-nav-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+    margin-bottom: 28px;
+  }
+}
+@media screen and (min-width: 788px) and (min-width: 960px) {
+  #primary-nav-container {
+    margin-left: var(--padding-site);
+  }
+}
+@media screen and (min-width: 788px) and (max-width: 960px) {
+  #primary-nav-container {
+    margin-left: var(--padding-site-tablet);
+  }
+}
+@media screen and (min-width: 788px) and (max-width: 640px) {
+  #primary-nav-container {
+    margin-left: var(--padding-site-mobile);
+  }
+}
+@media screen and (min-width: 788px) and (max-width: 480px) {
+  #primary-nav-container {
+    margin-left: var(--padding-site-mobile-sm) !important;
+  }
+}
+@media screen and (min-width: 788px) and (min-width: 960px) {
+  #primary-nav-container {
+    margin-right: var(--padding-site);
+  }
+}
+@media screen and (min-width: 788px) and (max-width: 960px) {
+  #primary-nav-container {
+    margin-right: var(--padding-site-tablet);
+  }
+}
+@media screen and (min-width: 788px) and (max-width: 640px) {
+  #primary-nav-container {
+    margin-right: var(--padding-site-mobile);
+  }
+}
+@media screen and (min-width: 788px) and (max-width: 480px) {
+  #primary-nav-container {
+    margin-right: var(--padding-site-mobile-sm) !important;
+  }
+}
+@media screen and (max-width: 788px) {
+  #primary-nav-container > div.primary-nav {
+    display: none;
+  }
+}
+@media screen and (min-width: 788px) {
+  #primary-nav-container > div#mobile-nav-interface {
+    display: none;
+  }
+}
+
+div.primary-nav {
+  width: 90%;
+  padding: 0 8px;
+}
+div.primary-nav > ul {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding: 0;
+}
+div.primary-nav > ul > li {
+  display: block;
+}
+
+div#mobile-nav-interface {
+  margin-bottom: 8px;
+}
+div#mobile-nav-interface div.open-container, div#mobile-nav-interface div.nav-frame {
+  position: relative;
+  overflow: clip;
+  top: 0;
+  transition: height 0.2s ease-in-out, top 0.2s ease-in-out, padding 0.2s ease-in-out;
+}
+div#mobile-nav-interface div.open-container.closed, div#mobile-nav-interface div.nav-frame.closed {
+  height: 0;
+  padding: 0;
+}
+div#mobile-nav-interface div.open-container {
+  border-radius: 8px;
+}
+div#mobile-nav-interface div.open-container button {
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  width: 35%;
+  height: 48px;
+  box-sizing: border-box;
+}
+div#mobile-nav-interface div.open-container button svg {
+  transition: transform 0.3s ease-in-out;
+}
+div#mobile-nav-interface div.open-container button.close svg {
+  transform: rotate(-180deg);
+}
+div#mobile-nav-interface div.nav-frame {
+  background: var(--color-background-mobile-nav);
+  padding: 28px 0;
+  box-sizing: border-box;
+  height: 176px;
+}
+div#mobile-nav-interface div.nav-frame li {
+  margin: 24px 0;
+}
+div#mobile-nav-interface div.nav-frame li:first-child {
+  margin-top: 0;
+}
+div#mobile-nav-interface div.nav-frame li:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 800px) and (max-width: 1439px) {
+  div.mgl-gallery.mgl-masonry {
+    column-count: 3 !important;
+  }
+}
+
+div#site-content > div.text-page-wrapper {
+  max-width: 842px;
+  margin: 0 auto;
+}
+div#site-content > div.text-page-wrapper .wp-block-column img {
+  height: auto;
+}
+
+/*# sourceMappingURL=style.css.map */

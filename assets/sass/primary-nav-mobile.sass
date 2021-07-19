@@ -1,0 +1,89 @@
+@use "design" as d
+
+#primary-nav-container 
+   @include d.link-style
+   a
+      font-size: var(--font-size-nav)
+      font-weight: var(--font-weight-nav)
+
+   ul
+      list-style-type: none
+      padding-inline-start: 0
+      @include d.make-block-margins(0)
+   
+   li.current-menu-item > a
+      color: var(--color-link-secondary)
+
+   @include d.above-mobile-media
+      display: flex
+      justify-content: center
+      margin-top: d.space(3.5)
+      margin-bottom: d.space(3.5)
+      @include d.use-square-site-padding   
+
+   & > div.primary-nav
+      @include d.mobile-media
+         display: none
+
+   & > div#mobile-nav-interface
+      @include d.above-mobile-media
+         display: none
+         
+
+
+div.primary-nav
+   width: 90%
+   padding: 0 d.space(1)
+   > ul
+      display: flex
+      justify-content: space-between
+      align-content: center
+      padding: 0
+      & > li
+         display: block         
+
+
+$open-container-height: 48px
+$nav-frame-height: 176px
+
+div#mobile-nav-interface
+   margin-bottom: d.space(1)
+
+   div.open-container, div.nav-frame
+      position: relative
+      overflow: clip
+      top: 0
+      transition: height 0.2s ease-in-out, top 0.2s ease-in-out, padding 0.2s ease-in-out
+      &.closed
+         height: 0
+         padding: 0
+   
+   div.open-container
+      border-radius: d.space(1)
+      
+      button
+         background: transparent
+         cursor: pointer
+         border: none
+         width: 35%
+         height: d.space(6)   
+         box-sizing: border-box
+
+         svg
+            transition: transform 0.3s ease-in-out
+         &.close
+            svg
+               transform: rotate(-180deg)
+
+   div.nav-frame
+      background: var(--color-background-mobile-nav)
+      padding: d.space(3.5) 0
+      box-sizing: border-box
+      li
+         margin: d.space(3) 0
+         &:first-child
+            margin-top: 0
+         &:last-child
+            margin-bottom: 0
+      
+      height: $nav-frame-height

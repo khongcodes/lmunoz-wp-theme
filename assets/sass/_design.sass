@@ -1,0 +1,138 @@
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                          NOTES
+//  - design system components
+//    > Breakpoints
+//    > Layout
+//    > Colors
+//    > Type Definition
+//    > Type Styles
+//    > Animation
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                    BREAKPOINTS
+
+$mobile-breakpoint: 788px
+
+@mixin mobile-media 
+  @media screen and (max-width: $mobile-breakpoint) 
+    @content
+
+@mixin above-mobile-media 
+  @media screen and (min-width: $mobile-breakpoint) 
+    @content
+
+@mixin use-squarespace-breakpoints($property)
+  @media screen and (min-width: 960px)
+    #{$property}: var(--padding-site)
+  @media screen and (max-width: 960px)
+    #{$property}: var(--padding-site-tablet)
+  @media screen and (max-width: 640px)
+    #{$property}: var(--padding-site-mobile)
+  @media screen and (max-width: 480px)
+    #{$property}: var(--padding-site-mobile-sm) !important
+
+@mixin use-square-site-padding
+  @include use-squarespace-breakpoints(margin-left)
+  @include use-squarespace-breakpoints(margin-right)
+  
+@mixin use-square-site-padding-top
+  @include use-squarespace-breakpoints(margin-top)
+
+@mixin use-square-site-padding-bottom
+  @include use-squarespace-breakpoints(padding-bottom)
+
+
+// usage:
+// @use 'design'
+// @include design.mobile-media
+//    background-color: red
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                         LAYOUT
+
+$space-unit: 8px
+
+@function space($multiplier)
+  @return $multiplier * $space-unit
+
+// usage:
+// margin-left: space(8)
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                         COLORS
+
+// $link-primary: #f66
+// $link-secondary: #f9b44d
+// $text-primary: #922627
+
+// usage:
+// $color: red
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                TYPE DEFINITION
+
+// $inter-font-path: "../fonts/inter/";
+
+// @font-face {
+//   font-family: "Inter";
+//   font-weight: 300;
+//   src: url("#{$inter-font-path}/Inter-Light.woff") format("woff");
+// }
+
+// @font-face {
+//   font-family: "Inter";
+//   font-weight: 400;
+//   src: url("#{$inter-font-path}/Inter-Regular.woff") format("woff");
+// }
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                    TYPE STYLES
+
+@mixin make-block-margins($value) 
+  margin-block-start: $value
+  margin-block-end: $value
+
+
+@mixin less-margin-type
+  @include make-block-margins(0.5em)
+
+@mixin link-style
+   a
+      text-decoration: none
+      color: var(--color-link-primary)
+      &:hover, &:active
+         color: var(--color-link-secondary)
+   
+
+// usage:
+// @include art-meta-copy-type
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                     ANIMATIONS
+
+// mixin replicating keyframe animation for different vendors
+@mixin keyframes($name) 
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
+// usage:
+// @include keyframes(fade-in) {
+//   0%    {opacity: 0;}
+//   100%  {opacity: 1;}
+// }
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                                                                    TRANSITIONS
+
