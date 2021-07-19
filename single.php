@@ -1,10 +1,15 @@
-<?php get_header() ?>
-   <?php if( have_posts() ) : ?>
-      <h2><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>   
-      <div class="content">
-         <?php the_content() ?>
-      </div>
-   <?php else : ?>
-      <p>oh no no posts</p>
-   <?php endif ?>
-<?php get_footer() ?>
+<?php get_header(); ?>
+
+<div class="text-page-wrapper">
+   <?php
+
+   if ( have_posts() ) :
+      while ( have_posts() ) : the_post();
+         the_content();
+      endwhile;
+   endif;
+
+   ?>
+</div>
+
+<?php get_footer(); ?>
