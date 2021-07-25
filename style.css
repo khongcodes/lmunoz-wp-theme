@@ -2,7 +2,7 @@
  * Author: Kevin Hong
  * Author URI: https://khongcodes.com
  * Description: Theme custom-made for Lynnette Munoz
- * Version: 1.0.2
+ * Version: 1.0.3
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: my-first-theme
@@ -14,6 +14,12 @@
   --color-link-primary: #f66;
   --color-link-secondary: #f9b44d;
   --color-text-primary: #922627;
+  --color-contact-form-confirm-bg: #ffe6e6;
+  --color-contact-form-confirm-shadow: #ff0000;
+  --color-contact-form-button-border: #ff9494;
+  --color-contact-form-button-bg: #fd7a7a;
+  --color-contact-form-button-text: #FFFFFF;
+  --color-contact-form-button-bg-hover: #e75656;
   --padding-site: 80px;
   --padding-site-tablet: 50px;
   --padding-site-mobile: 30px;
@@ -222,60 +228,33 @@ div#site-footer-container ul.wp-block-social-links li.wp-social-link {
   margin: 4px;
 }
 
-form.wpcf7-form {
+div.wpforms-container.wpforms-container-full {
   margin: 40px 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 3fr auto;
-  grid-template-areas: "first-name last-name" "email email" "subject subject" "message message" "submit submit";
-  column-gap: 32px;
 }
-form.wpcf7-form input[type=text], form.wpcf7-form input[type=email], form.wpcf7-form textarea {
-  padding: 12px 12px 10px;
-  background-color: #f3f3f3;
-  color: #5d5d5d;
-  border: 0.5px solid #d0d0d0;
-  border-radius: 5px;
+div.wpforms-container.wpforms-container-full form.wpforms-form div.wpforms-field-row.wpforms-field-medium, div.wpforms-container.wpforms-container-full form.wpforms-form input[type=email].wpforms-field-medium {
+  max-width: unset;
 }
-form.wpcf7-form > p {
-  margin-block-end: 8px;
-  margin-block-start: 8px;
-}
-form.wpcf7-form > p > label {
-  display: inline-block;
-  width: 100%;
-  font-size: 13px;
-}
-form.wpcf7-form > p > label > span.wpcf7-form-control-wrap > .wpcf7-form-control {
-  box-sizing: border-box;
-  width: 100%;
-}
-form.wpcf7-form > p:nth-of-type(1) {
-  grid-area: first-name;
-}
-form.wpcf7-form > p:nth-of-type(2) {
-  grid-area: last-name;
-}
-form.wpcf7-form > p:nth-of-type(3) {
-  grid-area: email;
-}
-form.wpcf7-form > p:nth-of-type(4) {
-  grid-area: subject;
-}
-form.wpcf7-form > p:nth-of-type(5) {
-  grid-area: message;
-}
-form.wpcf7-form > p:nth-of-type(5) textarea.wpcf7-form-control {
-  line-height: 120%;
-  font-family: sans-serif;
-}
-form.wpcf7-form > p:nth-of-type(6) {
-  margin-top: 16px;
+div.wpforms-container.wpforms-container-full div.wpforms-submit-container {
   text-align: center;
-  grid-area: submit;
+  margin: 8px 0;
 }
-form.wpcf7-form > p:nth-of-type(6) > span.ajax-loader {
-  display: none;
+div.wpforms-container.wpforms-container-full div.wpforms-submit-container button[type=submit].wpforms-submit {
+  border-radius: 8px;
+  border-color: var(--color-contact-form-button-border);
+  background-color: var(--color-contact-form-button-bg);
+  color: var(--color-contact-form-button-text);
+}
+div.wpforms-container.wpforms-container-full div.wpforms-submit-container button[type=submit].wpforms-submit:hover, div.wpforms-container.wpforms-container-full div.wpforms-submit-container button[type=submit].wpforms-submit:active, div.wpforms-container.wpforms-container-full div.wpforms-submit-container button[type=submit].wpforms-submit:focus {
+  background-color: var(--color-contact-form-button-bg-hover);
+}
+
+div.wpforms-confirmation-container-full {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0px 1px 4px -2px var(--color-contact-form-confirm-shadow);
+  background-color: var(--color-contact-form-confirm-bg);
+  color: var(--color-text-primary);
+  font-size: 90%;
 }
 
 #primary-nav-container a {
