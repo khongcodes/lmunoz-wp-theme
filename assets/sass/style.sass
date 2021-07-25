@@ -2,7 +2,7 @@
    Author: Kevin Hong
    Author URI: https://khongcodes.com
    Description: Theme custom-made for Lynnette Munoz
-   Version: 1.0.1
+   Version: 1.0.2
    License: GNU General Public License v2 or later
    License URI: http://www.gnu.org/licenses/gpl-2.0.html
    Text Domain: my-first-theme
@@ -25,11 +25,12 @@
    --font-size-regular: 15px
    --font-size-nav: 21px
    --font-weight-nav: 500
+   --font-family: "Helvetica Neue", Arial, sans-serif
 
 html
    height: 100%
    background: var(--color-background)
-   font-family: "Helvetica Neue", Arial, sans-serif
+   font-family: var(--font-family)
    font-size: var(--font-size-regular)
    color: var(--color-text-primary)
    line-height: 1.5em
@@ -73,6 +74,11 @@ div#site-footer-container
    font-size: 12px
    min-height: d.space(8)
    padding: d.space(2)
+
+   ul.wp-block-social-links
+      justify-content: center
+      li.wp-social-link
+         margin: d.space(0.5)
 
 
 @import "contact-form"
