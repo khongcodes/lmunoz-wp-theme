@@ -4,6 +4,7 @@ const mobileNavState = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+   console.log("mobile-menu script runs!")
    const mobileNavInterface = document.getElementById("mobile-nav-interface");
    const [mobileNavFrame, openContainer] = mobileNavInterface.children;
    registerButtonEvents(openContainer, mobileNavFrame);
