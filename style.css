@@ -43,26 +43,6 @@ body {
   margin-left: 0;
   margin-right: 0;
 }
-@media screen and (min-width: 960px) {
-  body {
-    margin-top: var(--padding-site);
-  }
-}
-@media screen and (max-width: 960px) {
-  body {
-    margin-top: var(--padding-site-tablet);
-  }
-}
-@media screen and (max-width: 640px) {
-  body {
-    margin-top: var(--padding-site-mobile);
-  }
-}
-@media screen and (max-width: 480px) {
-  body {
-    margin-top: var(--padding-site-mobile-sm) !important;
-  }
-}
 
 a {
   text-decoration: none;

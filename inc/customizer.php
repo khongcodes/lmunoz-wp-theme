@@ -74,7 +74,71 @@ function color_section( $wp_customize ) {
 }
 
 
+
+function site_spacing_section($wp_customize) {
+   $wp_customize -> add_section("sec_siteSpacing", array(
+      "title" => "Site Spacing",
+      "description" => "Set spacing/padding for the site here.",
+      "priority" => 62
+   ));
+
+   $wp_customize -> add_setting("set_padding_desktop", array(
+      "type" => "theme_mod",
+      "default" => 80,
+      "sanitize_callback" => "absint"
+   ));
+   $wp_customize -> add_control("ctrl_padding_desktop", array(
+      "label" => "Desktop padding",
+      "description" => "Desktop padding (pixels): when width > 960px",
+      "section" => "sec_siteSpacing",
+      "settings" => "set_padding_desktop",
+      "type" => "number"
+   ));
+
+   $wp_customize -> add_setting("set_padding_tablet", array(
+      "type" => "theme_mod",
+      "default" => 50,
+      "sanitize_callback" => "absint"
+   ));
+   $wp_customize -> add_control("ctrl_padding_tablet", array(
+      "label" => "Tablet padding",
+      "description" => "Tablet padding (pixels): when width is between 960px and 640px",
+      "section" => "sec_siteSpacing",
+      "settings" => "set_padding_tablet",
+      "type" => "number"
+   ));
+
+   $wp_customize -> add_setting("set_padding_mobile", array(
+      "type" => "theme_mod",
+      "default" => 30,
+      "sanitize_callback" => "absint"
+   ));
+   $wp_customize -> add_control("ctrl_padding_mobile", array(
+      "label" => "Large Mobile padding",
+      "description" => "Mobile padding (pixels): when width is between 640px and 480px",
+      "section" => "sec_siteSpacing",
+      "settings" => "set_padding_mobile",
+      "type" => "number"
+   ));
+
+   $wp_customize -> add_setting("set_padding_mobileSm", array(
+      "type" => "theme_mod",
+      "default" => 20,
+      "sanitize_callback" => "absint"
+   ));
+   $wp_customize -> add_control("ctrl_padding_mobileSm", array(
+      "label" => "Small Mobile padding",
+      "description" => "Small-mobile padding (pixels): when width < 480px",
+      "section" => "sec_siteSpacing",
+      "settings" => "set_padding_mobileSm",
+      "type" => "number"
+   ));
+}
+
+
+
 function all_customizer_settings( $wp_customize ) {
    color_section($wp_customize);
+   site_spacing_section($wp_customize);
 }
 add_action( "customize_register", "all_customizer_settings" );
