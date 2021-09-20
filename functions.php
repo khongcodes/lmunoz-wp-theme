@@ -1,5 +1,7 @@
 <?php
 
+require get_template_directory() . "/inc/customizer.php";
+
 if ( ! function_exists( "lmunoz_theme_setup" ) ) :
    /**
    *  Sets up theme defaults and registers support for various WP features

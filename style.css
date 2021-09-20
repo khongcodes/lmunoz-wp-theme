@@ -5,7 +5,7 @@
  * Version: 1.0.3
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: lmunoz-wp-theme
+ * Text Domain: my-first-theme
  * This theme, like WordPress, is licensed under the GPL.
  * Use it to make something cool, have fun, and share what you've learned with others. */
 :root {
@@ -32,10 +32,10 @@
 
 html {
   height: 100%;
-  background: var(--color-background);
+  /* background: var(--color-background) */
   font-family: var(--font-family);
   font-size: var(--font-size-regular);
-  color: var(--color-text-primary);
+  /* color: var(--color-text-primary) */
   line-height: 1.5em;
 }
 
@@ -66,11 +66,11 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--color-link-primary);
+  /* color: var(--color-link-primary) */
 }
 a:active, a:hover {
   text-decoration: underline;
-  color: var(--color-link-secondary);
+  /* color: var(--color-link-secondary) */
 }
 
 div#site-header {
