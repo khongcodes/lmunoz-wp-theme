@@ -1,5 +1,10 @@
 <?php
 
+require get_template_directory() . "/inc/customizer-defaults.php";
+function retrieve_lm_customizer_defaults() {
+   return $lm_customizer_defaults;
+}
+
 require get_template_directory() . "/inc/customizer.php";
 
 if ( ! function_exists( "lmunoz_theme_setup" ) ) :

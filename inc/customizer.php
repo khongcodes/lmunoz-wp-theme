@@ -1,6 +1,6 @@
 <?php
 
-function color_section( $wp_customize ) {
+function color_section( $wp_customize, $defaults ) {
    $wp_customize -> add_section("sec_colors", array(
       "title" => "Colors",
       "description" => "Set website colors here.",
@@ -9,7 +9,7 @@ function color_section( $wp_customize ) {
 
    $wp_customize -> add_setting("set_color_background", array(
       "type" => "theme_mod",
-      "default" => "#FFFFFF",
+      "default" => $defaults["color_background"],
       "sanitize_callback" => "sanitize_hex_color"
    ));
    $wp_customize -> add_control("ctrl_color_background", array(
@@ -53,7 +53,7 @@ function color_section( $wp_customize ) {
    ));
    $wp_customize -> add_control("ctrl_color_linksSecondary", array(
       "label" => "Links (Secondary)",
-      "description" => "Secondary color for links",
+      "description" => "Secondary color for links (on hover or active)",
       "section" => "sec_colors",
       "settings" => "set_color_linksSecondary",
       "type" => "color"
@@ -71,11 +71,91 @@ function color_section( $wp_customize ) {
       "settings" => "set_color_textMain",
       "type" => "color"
    ));
+
+   $wp_customize -> add_setting("set_color_formSubmitBg", array(
+      "type" => "theme_mod",
+      "default" => "#fd7a7a",
+      "sanitize_callback" => "sanitize_hex_color"
+   ));
+   $wp_customize -> add_control("ctrl_color_formSubmitBg", array(
+      "label" => "Contact Form Submit - Background",
+      "description" => "Background color for Submit button in the contact form",
+      "section" => "sec_colors",
+      "settings" => "set_color_formSubmitBg",
+      "type" => "color"
+   ));
+
+   $wp_customize -> add_setting("set_color_formSubmitBgHover", array(
+      "type" => "theme_mod",
+      "default" => "#e75656",
+      "sanitize_callback" => "sanitize_hex_color"
+   ));
+   $wp_customize -> add_control("ctrl_color_formSubmitBgHover", array(
+      "label" => "Contact Form Submit (Hover) - Background",
+      "description" => "Background color for Submit button in the contact form (on mouse hover)",
+      "section" => "sec_colors",
+      "settings" => "set_color_formSubmitBgHover",
+      "type" => "color"
+   ));
+
+   $wp_customize -> add_setting("set_color_formSubmitBorder", array(
+      "type" => "theme_mod",
+      "default" => "#ff9494",
+      "sanitize_callback" => "sanitize_hex_color"
+   ));
+   $wp_customize -> add_control("ctrl_color_formSubmitBorder", array(
+      "label" => "Contact Form Submit - Border",
+      "description" => "Border color for Submit button in the contact form",
+      "section" => "sec_colors",
+      "settings" => "set_color_formSubmitBorder",
+      "type" => "color"
+   ));
+
+   $wp_customize -> add_setting("set_color_formSubmitText", array(
+      "type" => "theme_mod",
+      "default" => "#FFFFFF",
+      "sanitize_callback" => "sanitize_hex_color"
+   ));
+   $wp_customize -> add_control("ctrl_color_formSubmitText", array(
+      "label" => "Contact Form Submit - Text",
+      "description" => "Text color for Submit button in the contact form",
+      "section" => "sec_colors",
+      "settings" => "set_color_formSubmitText",
+      "type" => "color"
+   ));
+
+   $wp_customize -> add_setting("set_color_formConfirmedBg", array(
+      "type" => "theme_mod",
+      "default" => "#ffe6e6",
+      "sanitize_callback" => "sanitize_hex_color"
+   ));
+   $wp_customize -> add_control("ctrl_color_formConfirmedBg", array(
+      "label" => "Contact Form Confirmation - Background",
+      "description" => "Background color for message displayed after user submits on the contact form",
+      "section" => "sec_colors",
+      "settings" => "set_color_formConfirmedBg",
+      "type" => "color"
+   ));
+
+   $wp_customize -> add_setting("set_color_formConfirmedShadow", array(
+      "type" => "theme_mod",
+      "default" => "#ff0000",
+      "sanitize_callback" => "sanitize_hex_color"
+   ));
+   $wp_customize -> add_control("ctrl_color_formConfirmedShadow", array(
+      "label" => "Contact Form Confirmation - Shadow",
+      "description" => "Color of box-shadow for message displayed after user submits on the contact form",
+      "section" => "sec_colors",
+      "settings" => "set_color_formConfirmedShadow",
+      "type" => "color"
+   ));
+   
+
 }
 
 
 
-function site_spacing_section($wp_customize) {
+function site_spacing_section($wp_customize, $defaults ) {
    $wp_customize -> add_section("sec_siteSpacing", array(
       "title" => "Site Spacing",
       "description" => "Set spacing/padding for the site here.",
@@ -84,7 +164,7 @@ function site_spacing_section($wp_customize) {
 
    $wp_customize -> add_setting("set_padding_desktop", array(
       "type" => "theme_mod",
-      "default" => 80,
+      "default" => $defaults['padding_desktop'],
       "sanitize_callback" => "absint"
    ));
    $wp_customize -> add_control("ctrl_padding_desktop", array(
@@ -138,7 +218,10 @@ function site_spacing_section($wp_customize) {
 
 
 function all_customizer_settings( $wp_customize ) {
-   color_section($wp_customize);
-   site_spacing_section($wp_customize);
+   
+   include get_template_directory() . "/inc/customizer-defaults.php";
+
+   color_section($wp_customize, $lm_customizer_defaults);
+   site_spacing_section($wp_customize, $lm_customizer_defaults);
 }
 add_action( "customize_register", "all_customizer_settings" );
