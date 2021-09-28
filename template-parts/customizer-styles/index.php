@@ -6,6 +6,9 @@
    html {
       background-color: <?php echo get_theme_mod( "set_color_background", $lm_customizer_defaults["color_background"] ) ; ?>;
       color: <?php echo get_theme_mod( "set_color_textMain", $lm_customizer_defaults["color_textMain"] ); ?>;
+      font-size: <?php echo get_theme_mod( "set_text_mainSize", $lm_customizer_defaults["text_mainSize"] ); ?>px;
+      font-family: <?php echo get_theme_mod( "set_text_mainFont", $lm_customizer_defaults["text_mainFont"] ) . ", Arial, sans-serif"; ?>;
+      font-style: <?php echo (get_theme_mod( "set_text_mainItalics" ) ? "italic" : "normal"); ?>;
    }
 
    a {
@@ -18,8 +21,19 @@
 
 
    /* NAV MENU */
+   #primary-nav-container a {
+      font-size: <?php echo get_theme_mod( "set_text_navSize", $lm_customizer_defaults["text_navSize"] ); ?>px;
+      font-weight: <?php echo get_theme_mod( "set_text_navWeight", $lm_customizer_defaults["text_navWeight"] ); ?>;
+      font-family: <?php echo get_theme_mod( "set_text_navFont", $lm_customizer_defaults["text_navFont"] ) . ", Arial, sans-serif"; ?>;
+      font-style: <?php echo (get_theme_mod( "set_text_navItalics" ) ? "italic" : "normal"); ?>;
+   }
+
    #primary-nav-container li.current-menu-item > a {
       color: <?php echo get_theme_mod( "set_color_linksSecondary", $lm_customizer_defaults["color_linksSecondary"] ); ?>;
+   }
+
+   div#mobile-nav-interface div.nav-frame {
+      background-color: <?php echo get_theme_mod( "set_color_backgroundMobileNav", $lm_customizer_defaults["color_backgroundMobileNav"] ); ?>;
    }
 
 

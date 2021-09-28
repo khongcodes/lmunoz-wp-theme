@@ -2,16 +2,16 @@
 
 #primary-nav-container 
    @include d.link-style
-   a
-      font-size: var(--font-size-nav)
-      font-weight: var(--font-weight-nav)
+   // a
+      // font-size: var(--font-size-nav)
+      // font-weight: var(--font-weight-nav)
 
    ul
       list-style-type: none
       padding-inline-start: 0
       @include d.make-block-margins(0)
    
-   li.current-menu-item > a
+   // li.current-menu-item > a
       // color: var(--color-link-secondary)
 
    @include d.above-mobile-media
@@ -21,7 +21,7 @@
       margin-bottom: d.space(3.5)
       @include d.use-square-site-padding   
 
-   & > div.primary-nav
+   & > div.primary-nav, & > div.menu:first-child
       @include d.mobile-media
          display: none
 
@@ -76,7 +76,7 @@ div#mobile-nav-interface
                transform: rotate(-180deg)
 
    div.nav-frame
-      background: var(--color-background-mobile-nav)
+      // background: var(--color-background-mobile-nav)
       padding: d.space(3.5) 0
       box-sizing: border-box
       li
