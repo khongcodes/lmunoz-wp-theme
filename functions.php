@@ -1,12 +1,5 @@
 <?php
 
-// GET CUSTOMIZER
-
-require_once(get_template_directory() . "/inc/customizer-defaults.php");
-
-
-require_once(get_template_directory(). "/inc/customizer.php");
-
 if ( ! function_exists( "lmunoz_theme_setup" ) ) :
    /**
    *  Sets up theme defaults and registers support for various WP features
@@ -65,6 +58,7 @@ add_action( "after_setup_theme", "lmunoz_theme_setup" );
 add_action( 'wp_enqueue_scripts', 'mat_assets');
 function mat_assets() {
    wp_enqueue_style( 'global', get_stylesheet_uri() );
+   wp_enqueue_style( "wp-color-picker" );
 }
 
 
@@ -75,6 +69,21 @@ add_action( 'wp_enqueue_scripts', 'load_mobile_menu_js');
 function load_mobile_menu_js() {
    wp_enqueue_script("mobile-menu-function", get_template_directory_uri() . "/assets/js/mobile-menu.js");
 }
+
+
+/////////////////////////////////////
+// LOAD IN CUSTOMIZER & STYLESHEET
+
+require_once(get_template_directory() . "/inc/customizer-defaults.php");
+require_once(get_template_directory(). "/inc/customizer.php");
+require_once(get_template_directory(). "/inc/customizer-stylesheet.php");
+
+add_action( "customize_register", function( $wp_customize ) use ( $lm_customizer_defaults ) {
+   all_customizer_settings( $wp_customize, $lm_customizer_defaults );
+});
+add_action( "wp_head", function() use ( $lm_customizer_defaults ) {
+   lmunoz_customizer_generate_stylesheet( $lm_customizer_defaults );
+} );
 
 
 /////////////////////////////////////
@@ -117,6 +126,13 @@ function lmunoz_fonts_url($customizer_defaults) {
    for ($i=0; $i < $key_count; $i++) {
       $this_font = $raw_font_arr[$i];
       $this_weight = $raw_weight_arr[$i];
+      
+      // CHECK IF JUST REQUESTING GLOBAL DEFAULT
+      if ($customizer_defaults["text_mainFont"] == $this_font) {
+         continue;
+      }
+
+      // CHECK FOR ITALIC
       if ($raw_italic_arr[$i]) {
          $this_weight .= "," . $this_weight . "italic";
       }

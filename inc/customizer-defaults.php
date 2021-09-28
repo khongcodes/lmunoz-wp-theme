@@ -3,7 +3,7 @@
    $lm_customizer_defaults = array(
       "color_background" => "#FFFFFF",
       "color_backgroundMobileNav" => "#ffe6e6",
-      "color_linksPrimary" => "#f66",
+      "color_linksPrimary" => "#f66f66",
       "color_linksSecondary" => "#f9b44d",
       "color_textMain" => "#922627",
       "color_formSubmitBg" => "#fd7a7a",
