@@ -70,6 +70,10 @@ function load_mobile_menu_js() {
    wp_enqueue_script("mobile-menu-function", get_template_directory_uri() . "/assets/js/mobile-menu.js");
 }
 
+// add_action( 'wp_enqueue_scripts', 'load_post_thumbnail_grid_resizer_js');
+// function load_post_thumbnail_grid_resizer_js() {
+//    wp_enqueue_script("post-thumbnail-grid-resizer-function", get_template_directory_uri() . "/assets/js/post-thumbnail-grid-resizer.js");
+// }
 
 /////////////////////////////////////
 // LOAD IN CUSTOMIZER & STYLESHEET
@@ -184,5 +188,82 @@ function register_my_sidebars() {
 add_action( "widgets_init", "register_my_sidebars" );
 
 
+/////////////////////////////////////
+// FUNCTION FOR QUERYING POSTS BY CATEGORY
+
+function wpb_postsbycategory($category_name) {
+   //  The Query
+   $the_query = new WP_Query( array(
+      "category_name" => $category_name
+   ) );
+
+   $the_posts_html = "";
+   //  The Loop
+   if ( $the_query->have_posts() ) {
+      // $the_posts_html .= "<ul class='postsbycategory widget_recent_entries'>";
+      while ( $the_query->have_posts() ) {
+            $the_query->the_post();
+            if ( has_post_thumbnail() ) {
+               
+               $the_posts_html .= "<div class='link-container'>";
+               $the_posts_html .= "<a href='" . get_the_permalink() . "' rel='bookmark'>";
+               $the_posts_html .= "<div class='thumbnail-container'>";
+               
+               $the_posts_html .= "<div class='title-overlay'>";
+               $the_posts_html .= "<h3>" . get_the_title( ) . "</h3>";
+               $the_posts_html .= "</div>";
+               
+               $the_posts_html .=  get_the_post_thumbnail( get_the_ID(  ) );
+               
+               $the_posts_html .= "</div>";
+               $the_posts_html .= "</a>";
+               $the_posts_html .= "</div>";
+               
+            } else {
+               // if no featured image is found
+               $the_posts_html .= "<li><a href='" . get_the_permalink() . "' rel='bookmark'>" . get_the_title() . "</a></li>";
+            }
+      }
+      wp_reset_postdata(  );
+      $the_posts_html .= "</ul>";
+   } else {
+      // no posts found
+   }
+
+   return $the_posts_html;
+
+   
+}
+
+add_shortcode( "categoryposts", "wpb_postsbycategory" );
 
 
+
+/////////////////////////////////////
+// FUNCTION FOR PASSING VARIABLE TO POST THUMBNAIL GRID SCRIPT
+
+
+function register_and_inject_postthumbnailgrid_script( $customizer_defaults ) {
+   
+   if ( is_single() || is_category() ) {
+
+      wp_register_script(
+         "postthumbgrid-script",
+         get_template_directory_uri() . "/assets/js/post-thumbnail-grid-resizer.js",
+         array(), 1.0, true
+      );
+      wp_enqueue_script( "postthumbgrid-script" );
+
+      $user_params = array(
+         "targetColNum" => get_theme_mod( "set_postthumbgrid_colnum_desktop", $customizer_defaults["postthumbgrid_colnum_desktop"] ),
+         "colGapWidth" => get_theme_mod( "set_postthumbgrid_colgap", $customizer_defaults["postthumbgrid_colgap"] ),
+         "totalDesktopPadding" => ( get_theme_mod( "set_padding_site_desktop_right", $customizer_defaults["padding_site_desktop_right"] ) + get_theme_mod( "set_padding_site_desktop_left", $customizer_defaults["padding_site_desktop_left"] ) )
+      );
+
+      wp_localize_script( "postthumbgrid-script", "userParams", $user_params );
+   }
+}
+
+add_action( "wp_enqueue_scripts", function() use ( $lm_customizer_defaults ) {
+   register_and_inject_postthumbnailgrid_script( $lm_customizer_defaults );
+});

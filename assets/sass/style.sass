@@ -56,7 +56,7 @@ a
 
 
 div#site-header
-   @include d.use-square-site-padding-top
+   // @include d.use-square-site-padding-top
    text-align: center
    div.banner-container 
       @include d.use-square-site-padding
@@ -70,9 +70,19 @@ div#site-header
          max-height: 107px
 
 div#site-content
-   @include d.use-square-site-padding
+   // @include d.use-square-site-padding
+   // background-color: blue
    margin-top: 0
    margin-bottom: d.space(2)
+
+div.post-container
+   margin-bottom: 160px
+
+// div.page-container
+//    background-color: yellow
+
+// div.post-thumbnail-grid-container
+//    background-color: green
 
 div#site-footer-container
    @include d.use-square-site-padding-bottom
@@ -87,9 +97,13 @@ div#site-footer-container
       li.wp-social-link
          margin: d.space(0.5)
 
+.wp-block-image img
+   height: 100%
+
 
 // @import "contact-form-7-plugin"
 @import "contact-form"
 @import "primary-nav-mobile"
 @import "meow-gallery"
 @import "text-page-wrapper"
+@import "post-thumb-grid"

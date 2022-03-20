@@ -2,7 +2,7 @@
  * Author: Kevin Hong
  * Author URI: https://khongcodes.com
  * Description: Theme custom-made for Lynnette Munoz
- * Version: 1.1.1
+ * Version: 1.1.0
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: my-first-theme
@@ -53,26 +53,6 @@ a:active, a:hover {
 
 div#site-header {
   text-align: center;
-}
-@media screen and (min-width: 960px) {
-  div#site-header {
-    margin-top: var(--padding-site);
-  }
-}
-@media screen and (max-width: 960px) {
-  div#site-header {
-    margin-top: var(--padding-site-tablet);
-  }
-}
-@media screen and (max-width: 640px) {
-  div#site-header {
-    margin-top: var(--padding-site-mobile);
-  }
-}
-@media screen and (max-width: 480px) {
-  div#site-header {
-    margin-top: var(--padding-site-mobile-sm) !important;
-  }
 }
 @media screen and (min-width: 960px) {
   div#site-header div.banner-container {
@@ -131,45 +111,9 @@ div#site-content {
   margin-top: 0;
   margin-bottom: 16px;
 }
-@media screen and (min-width: 960px) {
-  div#site-content {
-    margin-left: var(--padding-site);
-  }
-}
-@media screen and (max-width: 960px) {
-  div#site-content {
-    margin-left: var(--padding-site-tablet);
-  }
-}
-@media screen and (max-width: 640px) {
-  div#site-content {
-    margin-left: var(--padding-site-mobile);
-  }
-}
-@media screen and (max-width: 480px) {
-  div#site-content {
-    margin-left: var(--padding-site-mobile-sm) !important;
-  }
-}
-@media screen and (min-width: 960px) {
-  div#site-content {
-    margin-right: var(--padding-site);
-  }
-}
-@media screen and (max-width: 960px) {
-  div#site-content {
-    margin-right: var(--padding-site-tablet);
-  }
-}
-@media screen and (max-width: 640px) {
-  div#site-content {
-    margin-right: var(--padding-site-mobile);
-  }
-}
-@media screen and (max-width: 480px) {
-  div#site-content {
-    margin-right: var(--padding-site-mobile-sm) !important;
-  }
+
+div.post-container {
+  margin-bottom: 160px;
 }
 
 div#site-footer-container {
@@ -204,6 +148,10 @@ div#site-footer-container ul.wp-block-social-links {
 }
 div#site-footer-container ul.wp-block-social-links li.wp-social-link {
   margin: 4px;
+}
+
+.wp-block-image img {
+  height: 100%;
 }
 
 div.wpforms-container.wpforms-container-full {
@@ -364,6 +312,39 @@ div#site-content > div.text-page-wrapper {
   margin: 0 auto;
 }
 div#site-content > div.text-page-wrapper .wp-block-column img {
+  height: auto;
+}
+
+div#post-thumbnail-grid {
+  display: grid;
+}
+div#post-thumbnail-grid div.link-container {
+  width: 100%;
+}
+div#post-thumbnail-grid div.link-container div.thumbnail-container {
+  overflow-y: clip;
+}
+div#post-thumbnail-grid div.link-container div.thumbnail-container:hover .title-overlay {
+  opacity: 1;
+  cursor: pointer;
+  padding: 0 12px 12px;
+  box-sizing: border-box;
+}
+div#post-thumbnail-grid div.link-container div.thumbnail-container div.title-overlay {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  background-color: #454545ad;
+  opacity: 0;
+  text-align: center;
+  color: white;
+  border-bottom: 1px white solid;
+}
+div#post-thumbnail-grid div.link-container div.thumbnail-container div.title-overlay h3 {
+  width: 100%;
+}
+div#post-thumbnail-grid div.link-container div.thumbnail-container img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image {
+  width: 100%;
   height: auto;
 }
 

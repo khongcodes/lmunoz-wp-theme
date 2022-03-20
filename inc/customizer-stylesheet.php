@@ -1,5 +1,9 @@
 <?php
 
+function get_post_thumbnail_grid_col_template( $num_of_columns ) {
+
+};
+
 function lmunoz_customizer_generate_stylesheet( $defaults ) {?>
 
    <style type="text/css">
@@ -58,19 +62,103 @@ function lmunoz_customizer_generate_stylesheet( $defaults ) {?>
       }
 
 
+      /* POST THUMBNAIL GRID CONTAINER */
+
+      /*
+      div#post-thumbnail-grid-container > h2 {
+          color: <#?php echo get_theme_mod( "set_postthumbgrid_galleryTitleColor", $defaults["postthumbgrid_galleryTitleColor"] ); ?>
+      }*/
+      div#post-thumbnail-grid {
+         row-gap: <?php echo get_theme_mod( "set_postthumbgrid_rowgap", $defaults["postthumbgrid_rowgap"] ); ?>px;
+      }
+      div#post-thumbnail-grid div.thumbnail-container:hover div.title-overlay {
+         background-color: <?php echo get_theme_mod( "set_postthumbgrid_hoverBgColor", $defaults["postthumbgrid_hoverBgColor"] ); ?>;
+         opacity: <?php echo get_theme_mod( "set_postthumbgrid_hoverBgOpacity", $defaults["postthumbgrid_hoverBgOpacity"] ); ?>;
+         color: <?php echo get_theme_mod( "set_postthumbgrid_hoverTextColor", $defaults["postthumbgrid_hoverTextColor"] ); ?>;
+      }
+
+
       /* SPACING */
 
       @media screen and (min-width: 960px) {
-         body { margin-top: <?php echo get_theme_mod( "set_padding_desktop", $defaults["padding_desktop"] ); ?>px; }
+         body { 
+            margin-top: <?php echo get_theme_mod( "set_padding_site_top_desktop", $defaults["padding_site_top_desktop"] ); ?>px; 
+         }
+         div#site-header {
+            margin-top: <?php echo get_theme_mod( "set_padding_site_top_desktop", $defaults["padding_site_top_desktop"] ); ?>px; 
+         }
+         div#site-content {
+            padding-left: <?php echo get_theme_mod( "set_padding_site_desktop_left", $defaults["padding_site_desktop_left"] ); ?>px;
+            padding-right: <?php echo get_theme_mod( "set_padding_site_desktop_right", $defaults["padding_site_desktop_right"] ); ?>px;
+         }
+         div.page-container {
+            padding-left: <?php echo get_theme_mod( "set_padding_page_desktop_left", $defaults["padding_page_desktop_left"] ); ?>px;
+            padding-right: <?php echo get_theme_mod( "set_padding_page_desktop_right", $defaults["padding_page_desktop_right"] ); ?>px;
+         }
+         div.post-container {
+            padding-left: <?php echo get_theme_mod( "set_padding_post_desktop_left", $defaults["padding_post_desktop_left"] ); ?>px;
+            padding-right: <?php echo get_theme_mod( "set_padding_post_desktop_right", $defaults["padding_post_desktop_right"] ); ?>px;
+         }
       }
       @media screen and (max-width: 960px) {
-         body { margin-top: <?php echo get_theme_mod( "set_padding_tablet", $defaults["padding_tablet"] ); ?>px; }
+         body {
+            margin-top: <?php echo get_theme_mod( "set_padding_site_top_tablet", $defaults["padding_site_top_tablet"] ); ?>px;
+         }
+         div#site-header {
+            margin-top: <?php echo get_theme_mod( "set_padding_site_top_tablet", $defaults["padding_site_top_tablet"] ); ?>px; 
+         }
+         div#site-content {
+            padding-left: <?php echo get_theme_mod( "set_padding_site_tablet_left", $defaults["padding_site_tablet_left"] ); ?>px;
+            padding-right: <?php echo get_theme_mod( "set_padding_site_tablet_right", $defaults["padding_site_tablet_right"] ); ?>px;
+         }
+         div.page-container {
+            padding-left: <?php echo get_theme_mod( "set_padding_page_tablet_left", $defaults["padding_page_tablet_left"] ); ?>px;
+            padding-right: <?php echo get_theme_mod( "set_padding_page_tablet_right", $defaults["padding_page_tablet_right"] ); ?>px;
+         }
+         div.post-container {
+            padding-left: <?php echo get_theme_mod( "set_padding_post_tablet_left", $defaults["padding_post_tablet_left"] ); ?>px;
+            padding-right: <?php echo get_theme_mod( "set_padding_post_tablet_right", $defaults["padding_post_tablet_right"] ); ?>px;
+         }
       }
       @media screen and (max-width: 640px) {
-         body { margin-top: <?php echo get_theme_mod( "set_padding_mobile", $defaults["padding_mobile"] ); ?>px; }
+         body { 
+            margin-top: <?php echo get_theme_mod( "set_padding_site_top_mobile", $defaults["padding_site_top_mobile"] ); ?>px;
+         }
+         div#site-header {
+            margin-top: <?php echo get_theme_mod( "set_padding_site_top_mobile", $defaults["padding_site_top_mobile"] ); ?>px; 
+         }
+         div#site-content {
+            padding-left: <?php echo get_theme_mod( "set_padding_site_mobile_left", $defaults["padding_site_mobile_left"] ); ?>px;
+            padding-right: <?php echo get_theme_mod( "set_padding_site_mobile_right", $defaults["padding_site_mobile_right"] ); ?>px;
+         }
+         div.page-container {
+            padding-left: <?php echo get_theme_mod( "set_padding_page_mobile_left", $defaults["padding_page_mobile_left"] ); ?>px;
+            padding-right: <?php echo get_theme_mod( "set_padding_page_mobile_right", $defaults["padding_page_mobile_right"] ); ?>px;
+         }
+         div.post-container {
+            padding-left: <?php echo get_theme_mod( "set_padding_post_mobile_left", $defaults["padding_post_mobile_left"] ); ?>px;
+            padding-right: <?php echo get_theme_mod( "set_padding_post_mobile_right", $defaults["padding_post_mobile_right"] ); ?>px;
+         }
       }
       @media screen and (max-width: 480px) {
-         body { margin-top: <?php echo get_theme_mod( "set_padding_mobileSm", $defaults["padding_mobileSm"] ); ?>px; }
+         body { 
+            margin-top: <?php echo get_theme_mod( "set_padding_site_top_mobileSm", $defaults["padding_site_top_mobileSm"] ); ?>px;
+         }
+         div#site-header {
+            margin-top: <?php echo get_theme_mod( "set_padding_site_top_mobileSm", $defaults["padding_site_top_mobileSm"] ); ?>px; 
+         }
+         div#site-content {
+            padding-left: <?php echo get_theme_mod( "set_padding_site_mobileSm_left", $defaults["padding_site_mobileSm_left"] ); ?>px;
+            padding-right: <?php echo get_theme_mod( "set_padding_site_mobileSm_right", $defaults["padding_site_mobileSm_right"] ); ?>px;
+         }
+         div.page-container {
+            padding-left: <?php echo get_theme_mod( "set_padding_page_mobileSm_left", $defaults["padding_page_mobileSm_left"] ); ?>px;
+            padding-right: <?php echo get_theme_mod( "set_padding_page_mobileSm_right", $defaults["padding_page_mobileSm_right"] ); ?>px;
+         }
+         div.post-container {
+            padding-left: <?php echo get_theme_mod( "set_padding_post_mobileSm_left", $defaults["padding_post_mobileSm_left"] ); ?>px;
+            padding-right: <?php echo get_theme_mod( "set_padding_post_mobileSm_right", $defaults["padding_post_mobileSm_right"] ); ?>px;
+         }
       }
    </style>
 
